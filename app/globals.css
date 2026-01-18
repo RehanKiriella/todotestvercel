@@ -1,0 +1,41 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+ 
+  --color-accent-blue: oklch(0.6 0.15 250);
+  --color-friendly-red: oklch(0.65 0.18 15);
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.25 0.02 260);
+  --border: oklch(0.92 0.01 260);
+  --ring: oklch(0.8 0.02 260);
+  --radius: 0.6rem;
+}
+
+.dark {
+  --background: oklch(0.18 0.02 260);
+  --foreground: oklch(0.95 0.01 260);
+  --border: oklch(0.28 0.02 260);
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground antialiased; }
+}
+
+@layer utilities {
+  .subtle-shadow {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+}
+
